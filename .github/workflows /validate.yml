@@ -1,4 +1,4 @@
-Name: Validation
+name: Validation
 on: [Push]
 
 jobs:
@@ -8,5 +8,6 @@ jobs:
             - name: Echo a String
               run: echo "Hello World"
             - name: Multiline Command
-              run: node -v
-                  npm -v
+              run: 
+                node -v
+                npm -v
