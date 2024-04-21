@@ -18,9 +18,9 @@ jobs:
 			- name: echo a string
 				run: echo "Running Job 2"
 
-	dependent-job:
+	dependent-job-1:
 		runs-on: ubuntu-latest
 		needs: [run-job-1, run-job-2]
 			steps:
 				- name: echo a string
-					run: echo "Running Dependent Job" 
+					run: echo "Running Dependent Job"
