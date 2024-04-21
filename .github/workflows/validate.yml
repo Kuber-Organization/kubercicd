@@ -7,10 +7,6 @@ jobs:
     steps:
       - name: echo a string
         run: echo "Running Job 1"
-   #    - name: Multiline Command
-   #      run: |
-	  # node -v
- 	 #  npm -v
   
   run-job-2:
     runs-on: ubuntu-latest
