@@ -22,7 +22,7 @@ jobs:
         env:
           SFDX_JWT_KEY: ${{ secrets.SFDX_JWT_KEY_SIT }}
           SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID_SIT }}
-          SFDX_USERNAME: ${{ USERNAME_SIT }}
+          SFDX_USERNAME: ${{ secrets.USERNAME_SIT }}
         run: |
           echo "${SFDX_JWT_KEY}" > server.key
           npx sf org login jwt --client-id "${SFDX_CLIENT_ID}" --jwt-key-file server.key --username "${SFDX_USERNAME}" --instance-url https://kubercicdsit-dev-ed.develop.my.salesforce.com --alias sit --set-default
@@ -32,7 +32,7 @@ jobs:
       - name: Build, Test & Deploy
         uses: gfarb/sfdx-deploy@v1
         env:
-          TARGET_USERNAME: ${{ USERNAME_SIT }}
+          TARGET_USERNAME: ${{ secrets.USERNAME_SIT }}
           SOURCE_PATH: force-app
           DESTRUCTIVE_CHANGES: ""
           TEST_LEVEL: RunLocalTests
