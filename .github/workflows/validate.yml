@@ -26,9 +26,9 @@ jobs:
         run: |
           echo "${SFDX_JWT_KEY}" > server.key
           sf org login jwt --client-id "${SFDX_CLIENT_ID}" --jwt-key-file server.key --username "${SFDX_USERNAME}" --instance-url https://kubercicdsit-dev-ed.develop.my.salesforce.com --alias sit --set-default
-          sf org display --target-org sit      
-		      rm server.key
-        
+          sf org display --target-org sit
+	  rm server.key
+   
       - name: Build, Test & Deploy
         uses: gfarb/sfdx-deploy@v1
         env:
