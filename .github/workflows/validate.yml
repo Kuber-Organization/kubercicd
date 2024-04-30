@@ -15,15 +15,7 @@ jobs:
         with:
           node-version: "14"
           
-      - name: Cache node modules
-        uses: actions/cache@v3
-        id: npm_cache_id
-        with:
-          path: ~/.npm
-          key: npm-deps-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install Dependencies
-        if: steps.npm_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: SFDX Auth
