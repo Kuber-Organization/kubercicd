@@ -25,8 +25,8 @@ jobs:
           SFDX_USERNAME: ${{ secrets.USERNAME_SIT }}
         run: |
           echo "${SFDX_JWT_KEY}" > server.key
-          npx sf org login jwt --client-id "${SFDX_CLIENT_ID}" --jwt-key-file server.key --username "${SFDX_USERNAME}" --instance-url https://kubercicdsit-dev-ed.develop.my.salesforce.com --alias sit --set-default
-          npx sf org display --target-org sit
+          npx sfdx force:auth:jwt:grant --clientid "${SFDX_CLIENT_ID}" --jwtkeyfile server.key --username "${SFDX_USERNAME}" --instanceurl https://kubercicdsit-dev-ed.develop.my.salesforce.com --setalias sit --set-default-sit
+          npx sfdx force:org:display --json -u "${SFDX_USERNAME}"  > sfdx-auth.json
           rm server.key
 
       - name: Build, Test & Deploy
