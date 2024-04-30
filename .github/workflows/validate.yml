@@ -16,7 +16,7 @@ jobs:
           node-version: "14"
           
       - name: Install Dependencies
-        run: npm install --global @salesforce/cli
+        run: npm install
 
       - name: SFDX Auth
         env:
